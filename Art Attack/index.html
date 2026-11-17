@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor Customizer</title>
+    </head>
+<link rel="stylesheet" href="style.css">
+<body>
+
+    <div class="container">
+
+        <h1>Text Editor Customizer</h1>
+        <p class="subtitle">
+            Customize your editor with your favourite styles!
+        </p>
+
+        <div class="controls">
+
+            <div class="control">
+                <label for="bgColor">Background Colour</label>
+                <input type="color" id="bgColor" value="#ffffff">
+            </div>
+
+            <div class="control">
+                <label for="textColor">Text Colour</label>
+                <input type="color" id="textColor" value="#222222">
+            </div>
+
+            <div class="control">
+                <label for="fontFamily">Font Family</label>
+                <select id="fontFamily">
+                    <option value="Arial">Arial</option>
+                    <option value="bold">bold</option>
+                     <option value="cursive">Cursive</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Trebuchet MS">Trebuchet MS</option>
+                    <option value="Impact">Impact</option>
+                </select>
+            </div>
+
+        </div>
+
+
+       <div
+    class="editor"
+    id="editor"
+    contenteditable="true"
+    data-placeholder="Write your text here..."
+    spellcheck="false"
+></div>
+
+        <div class="buttons">
+            <button onclick="resetEditor()">Reset Settings</button>
+        </div>
+
+       
+    </div>
+
+    <script>
+
+
+        const editor = document.getElementById("editor");
+
+        const bgColor = document.getElementById("bgColor");
+
+        const textColor = document.getElementById("textColor");
+
+        const fontFamily = document.getElementById("fontFamily");
+
+
+        bgColor.addEventListener("input", function() {
+
+            editor.style.backgroundColor = bgColor.value;
+
+        });
+
+
+        textColor.addEventListener("input", function() {
+
+            editor.style.color = textColor.value;
+
+        });
+
+
+
+        fontFamily.addEventListener("change", function() {
+
+            editor.style.fontFamily = fontFamily.value;
+
+        });
+
+
+        function resetEditor() {
+
+            bgColor.value = "#ffffff";
+
+            textColor.value = "#222222";
+
+            fontFamily.value = "Arial";
+
+            editor.style.backgroundColor = "#ffffff";
+
+            editor.style.color = "#222222";
+
+            editor.style.fontFamily = "Arial";
+
+        }
+
+    </script>
+
+</body>
+</html>
